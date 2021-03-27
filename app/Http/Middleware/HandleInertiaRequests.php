@@ -15,6 +15,7 @@ class HandleInertiaRequests extends Middleware
      */
     protected $rootView = 'app';
     public $count = 0;
+    public $messages = 0;
 
     /**
      * Determines the current asset version.
@@ -46,9 +47,18 @@ class HandleInertiaRequests extends Middleware
             else{
                 $this->count = 0;
             }
+
+            if($request->user()->messages())
+            {
+                $this->messages = auth()->user()->messages()->where('read_at', null)->count();
+            }
+            else{
+                $this->messages = 0;
+            }
         }
         return array_merge(parent::share($request), [
             'notif' => $this->count,
+            'mess' => $this->messages,
         ]);
     }
 }

@@ -9,7 +9,7 @@
         <div>
             <div class="bg-white shadow" v-if="userNotifications.data.length > 1">
                 <div v-for="notification in userNotifications.data" :key="notification.id" class="p-4 border-b">
-                    <img :src="notification.data.user.profile_photo_url" class="flex-shrink-0 w-8 h-8 rounded-full mb-2">
+                    <img :src="notification.data.user.profile_photo_url" class="flex-shrink-0 w-8 h-8 rounded-full mb-2 object-cover">
                     <div class="mb-2">
                         <inertia-link :href="`/${ notification.data.user.username }`" class="font-semibold">{{ notification.data.user.name }}</inertia-link>
                         {{ notification.data.action }}

@@ -15,6 +15,10 @@ class Message extends Model
         'content'
     ];
 
+    protected $appends = [
+        'created',
+    ];
+
     public function sender()
     {
         return $this->belongsTo(User::class, 'user_id');
@@ -28,5 +32,10 @@ class Message extends Model
     public function room()
     {
         return $this->belongsTo(ChatRoom::class, 'chat_room_id');
+    }
+
+    public function getCreatedAttribute()
+    {
+        return $this->created_at->diffForHumans();
     }
 }

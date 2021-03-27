@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         ChatRoom::factory(1)->create();
-        Message::factory(10)->create();
+        Message::factory(2)->create();
         // $userA = User::factory()->create([
         //     'name' => 'Bret Oreta',
         //     'username' => '_yk.travis',

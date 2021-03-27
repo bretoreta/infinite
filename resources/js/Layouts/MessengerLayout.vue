@@ -35,7 +35,7 @@
                             </inertia-link>
                             <inertia-link href="/messenger" class="flex items-center text-gray-500 hover:text-blue-500 hover:bg-blue-500 hover:bg-opacity-20 rounded-full p-2 mb-3" :class="route().current('messenger.*') ? 'bg-blue-100 text-blue-500': ''">
                                 <div class="relative">
-                                    <div class="absolute bg-blue-500 bg-opacity-75 p-1 text-xs text-white -top-3 -left-2 rounded-full">33</div>
+                                    <div v-if="$page.props.mess" class="absolute bg-blue-500 bg-opacity-75 py-1 px-2 text-xs text-white -top-3 -left-2 rounded-full">{{ $page.props.mess }}</div>
                                     <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>    
                                 </div>
                                 <p class="mt-1 font-semibold">Messages</p>
