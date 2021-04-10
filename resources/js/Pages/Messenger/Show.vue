@@ -5,7 +5,13 @@
                 <header class="bg-white px-10 flex h-20 py-5 shadow-md border-b sticky top-0">
                     <inertia-link href="/messenger">
                         <div class="flex items-center">
-                            <div class="text-gray-500 mr-3">Back</div>
+                            <div class="text-gray-500 mr-6">
+                                <inertia-link href="/messenger">
+                                    <svg class="h-6 w-6 text-gray-500 hover:text-blue-500 duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                                    </svg>
+                                </inertia-link>
+                            </div>
                             <img class="h-12 w-12 rounded-full object-cover" :src="(loggedId == ownerId) ? room.receiver.profile_photo_url : room.owner.profile_photo_url" :alt="(loggedId == ownerId) ? room.receiver.name : room.owner.name" />
                         </div>
                     </inertia-link>
@@ -20,7 +26,7 @@
                     </div>
                 </div>
                 <div class="typing-area w-full sticky bottom-0 bg-white py-3 px-4">
-                    <form @submit.prevent="sendMessage(room.id)">
+                    <form @submit.prevent="sendMessage(room.id)" autocomplete="off" id="messageForm">
                         <div class="flex items-center relative">
                             <input type="hidden" v-model="form.receiver">
                             <input id="content" v-model="form.content" type="text" class="px-5 py-2 bg-gray-100 rounded-full w-full mr-4" :class="$page.props.errors.content ? 'border border-red-500' : ''" placeholder="Type message here">
@@ -63,8 +69,10 @@ import MessengerLayout from '../../Layouts/MessengerLayout.vue'
         },
         methods: {
             sendMessage(id) {
+                const messageForm = document.querySelector('#messageForm')
+
                 this.form.post(`/messenger/room/${id}`);
-                this.content = '';
+                this.form.reset();              
             }
         },
         computed() {
@@ -74,3 +82,8 @@ import MessengerLayout from '../../Layouts/MessengerLayout.vue'
         }
     }
 </script>
+<style scoped>
+.h-100 {
+    height: 466px;
+}
+</style>

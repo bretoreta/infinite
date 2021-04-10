@@ -2,8 +2,8 @@
   <div class="bg-white p-4 flex">
       <img :src="person.user.profile_photo_url" :alt="person.user.name" class="w-12 h-12 flex-shrink-0 rounded-full flex-shrink-0">
       <form @submit.prevent="submit" class="flex-1 ml-4">
-            <textarea :class="$page.props.errors.content ? 'border-2 border-red-500': 'border-2 border-blue-500'" 
-                    class="w-full p-2 resize-none rounded-lg focus:outline-none"
+            <textarea :class="$page.props.errors.content ? 'border-2 border-red-500': 'border-2 border-transparent'" 
+                    class="w-full p-2 resize-none rounded-lg focus:outline-none focus:border-transparent focus:border-2"
                     placeholder="What's Happening ?"
                     aria-label="Hydra Content"
                     v-model="form.content"

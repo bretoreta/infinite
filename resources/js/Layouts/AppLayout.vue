@@ -125,7 +125,7 @@
 
             <div class="flex-1 border-r border-gray-200">
                 <!-- Page Heading -->
-                <header class="bg-white border-b border-gray-200 sticky top-0 right-0 w-full" v-if="$slots.header">
+                <header class="bg-white border-b border-gray-200 sticky top-0 right-0 w-full z-10" v-if="$slots.header">
                     <div class="py-5 px-10">
                         <slot name="header"></slot>
                     </div>
@@ -138,7 +138,7 @@
             <div class="hidden lg:block">
                 <div class="bg-white min-h-screen px-10 py-8 sticky top-0 right-0">
                     <div class="searchbar relative">
-                        <input type="text" class="py-2 px-4 bg-gray-100 rounded-full border border-gray-300" placeholder="Search Hydra">
+                        <input type="text" class="py-2 px-4 bg-gray-100 rounded-full border border-gray-300" placeholder="Search Infinite">
                     </div>
                     <div class="mt-4">
                         <div class="bg-gray-100 border border-gray-300 rounded-xl px-4 py-2">
@@ -204,10 +204,6 @@
                 showingNavigationDropdown: false,
                 count : this.$page.props.mess,
             }
-        },
-
-        mounted() {
-            console.log(this.count);
         },
 
         methods: {

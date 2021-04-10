@@ -14,8 +14,8 @@
                 </div>
                 <div v-for="user in userFollowings.data" :key="user.id" class="border-b flex justify-between p-4">
                     <div class="flex">
-                        <img :src="user.profile_photo_url" class="flex-shrink-0 w-12 h-12 rounded-full">
-                        <div class="flex flex-col">
+                        <img :src="user.profile_photo_url" class="flex-shrink-0 w-12 h-12 rounded-full object-cover">
+                        <div class="flex flex-col ml-3">
                             <a :href="`/${user.username}`" class="font-semibold">{{ user.name }}</a>
                             <a :href="`/${user.username}`" class="text-sm text-gray-500">{{ `@${ user.username }` }}</a>
                         </div>

@@ -11,12 +11,12 @@
             <div class="bg-white shadow">
                 <div v-for="tweet in userTweets.data" :key="tweet.id" class="flex p-4 border-b">
                     <img :src="tweet.user.profile_photo_url" :alt="tweet.user.name" class="w-12 h-12 rounded-full flex-shrink-0 object-cover">
-                    <div class="ml-4">
+                    <div class="ml-4 w-full">
                         <div class="flex items-center">
                             <inertia-link :href="`/${ tweet.user.username }`" class="font-semibold mr-2">{{ tweet.user.name }}</inertia-link> - <inertia-link :href="`/${ tweet.user.username }`" class="text-blue-500 text-sm mx-2">{{ `@${tweet.user.username}` }}</inertia-link> &middot; <div class="text-gray-400 text-xs ml-2">{{ `${tweet.created}` }}</div>
                         </div>
                         <div class="mb-4">{{ tweet.content }}</div>
-                        <div v-if="tweet.media.length" class="grid gap-2 my-2" :class="{ 'grid-cols-2' : tweet.media.length > 1 }">
+                        <div v-if="tweet.media.length" class="grid my-2" :class="tweet.media.length > 1 ? 'grid-cols-2 gap-2' : 'grid-cols-1'">
                             <div v-for="(item, index) in tweet.media" :key="index">
                                 <img :src="item.full_url" class="rounded-xl object-cover w-full h-48">
                             </div>
